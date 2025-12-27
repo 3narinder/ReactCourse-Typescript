@@ -1,9 +1,13 @@
-import User from "./components/propTypes/User";
+import Button from "./components/propTypes/Button";
 
 const App = () => {
+  const handleClick = () => {
+    console.log("Added to cart");
+  };
+
   return (
     <div className="flex items-center mt-12 justify-center">
-      <User name="John wick" age={20} isStudent={true} />
+      <Button label="Add to cart" text="Add" onClick={handleClick} />
     </div>
   );
 };
