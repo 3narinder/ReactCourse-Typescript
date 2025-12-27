@@ -1,13 +1,27 @@
-import Button from "./components/propTypes/Button";
+import Admin from "./components/ReusableTypes/Admin";
+import User from "./components/ReusableTypes/User";
+
+import type { AdminInfo, Info } from "./components/ReusableTypes/Types";
+
+const user: Info = {
+  id: 1,
+  name: "John Wick",
+  email: "john@gmail.com",
+};
+
+const admin: AdminInfo = {
+  id: 2,
+  name: "maria",
+  email: "maria@gmail.com",
+  role: "admin",
+};
 
 const App = () => {
-  const handleClick = () => {
-    console.log("Added to cart");
-  };
-
   return (
-    <div className="flex items-center mt-12 justify-center">
-      <Button label="Add to cart" text="Add" onClick={handleClick} />
+    <div className="flex flex-col items-center mt-12 justify-center">
+      <User user={user} />
+
+      <Admin admin={admin} />
     </div>
   );
 };
