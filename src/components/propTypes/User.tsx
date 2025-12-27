@@ -1,23 +1,11 @@
-// type UserProps = {
-//   name: string;
-//   age: number;
-//   isStudent: boolean;
-// };
+import type { ReactNode } from "react";
 
 interface UserProps {
-  name: string;
-  age: number;
-  isStudent: boolean;
+  children: ReactNode;
 }
 
-const User = ({ name, age, isStudent }: UserProps) => {
-  return (
-    <div>
-      <h1>{name}</h1>
-      <h1>{age}</h1>
-      <h1>{isStudent ? "Student" : "Professional"}</h1>
-    </div>
-  );
+const User = ({ children }: UserProps) => {
+  return <div>{children}</div>;
 };
 
 export default User;
