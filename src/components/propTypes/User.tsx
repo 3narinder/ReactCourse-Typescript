@@ -1,12 +1,10 @@
-const User = ({
-  name,
-  age,
-  isStudent,
-}: {
+type UserProps = {
   name: string;
   age: number;
   isStudent: boolean;
-}) => {
+};
+
+const User = ({ name, age, isStudent }: UserProps) => {
   return (
     <div>
       <h1>{name}</h1>
