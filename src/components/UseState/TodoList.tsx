@@ -11,11 +11,11 @@ const TodoList = () => {
   const [val, setVal] = useState<string>("");
 
   const addTask = () => {
-    if (val.trim() === "") return;
+    if (val?.trim() === "") return;
 
     const newTask: Todo = {
-      id: list.length > 0 ? Math.max(...list.map((t) => t.id)) + 1 : 1,
-      task: val.trim(),
+      id: list?.length > 0 ? Math.max(...list.map((t) => t.id)) + 1 : 1,
+      task: val?.trim(),
       completed: false,
     };
 
@@ -25,14 +25,14 @@ const TodoList = () => {
 
   const toggleComplete = (id: number) => {
     setList(
-      list.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      list?.map((todo) =>
+        todo?.id === id ? { ...todo, completed: !todo?.completed } : todo
       )
     );
   };
 
   const deleteTask = (id: number) => {
-    setList(list.filter((todo) => todo.id !== id));
+    setList(list?.filter((todo) => todo?.id !== id));
   };
 
   return (
@@ -56,26 +56,26 @@ const TodoList = () => {
         </button>
       </div>
 
-      {list.length === 0 ? (
+      {list?.length === 0 ? (
         <p className="text-gray-500 text-center">
           No tasks yet. Add one above!
         </p>
       ) : (
         <ul className="space-y-3">
-          {list.map((todo) => (
+          {list?.map((todo) => (
             <li
-              key={todo.id}
+              key={todo?.id}
               className="flex items-center gap-3 bg-gray-50 p-3 rounded-md hover:bg-gray-100 transition-colors"
             >
               <input
                 type="checkbox"
                 checked={todo?.completed}
-                onChange={() => toggleComplete(todo.id)}
+                onChange={() => toggleComplete(todo?.id)}
                 className="w-5 h-5 text-blue-600 rounded focus:ring-blue-500"
               />
               <span
                 className={`flex-1 ${
-                  todo.completed
+                  todo?.completed
                     ? "line-through text-gray-500"
                     : "text-gray-800"
                 }`}
@@ -83,7 +83,7 @@ const TodoList = () => {
                 {todo.task}
               </span>
               <button
-                onClick={() => deleteTask(todo.id)}
+                onClick={() => deleteTask(todo?.id)}
                 className="text-red-500 hover:text-red-700 text-sm font-medium cursor-pointer"
               >
                 Delete
